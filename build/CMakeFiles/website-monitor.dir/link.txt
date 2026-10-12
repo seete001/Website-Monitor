@@ -1,1 +1,0 @@
-/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names "CMakeFiles/website-monitor.dir/src/main.cpp.o" "CMakeFiles/website-monitor.dir/src/Config.cpp.o" -o website-monitor

@@ -1,3 +1,0 @@
-/Users/sepehretemadi/Desktop/programming/uni_projects/website-monitor/build/CMakeFiles/website-monitor.dir
-/Users/sepehretemadi/Desktop/programming/uni_projects/website-monitor/build/CMakeFiles/edit_cache.dir
-/Users/sepehretemadi/Desktop/programming/uni_projects/website-monitor/build/CMakeFiles/rebuild_cache.dir
