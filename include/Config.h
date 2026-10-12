@@ -7,6 +7,9 @@ struct Config
 {
     std::string url;
     int intervalSeconds;
+    int timeout;
+    std::string log_file;
+    
 };
 
 Config loadConfig(const std::string& filename);

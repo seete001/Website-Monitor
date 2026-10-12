@@ -1,48 +1,63 @@
 #include "Config.h"
 
 #include <fstream>
-#include <stdexcept>
-#include<string>
+#include <iostream>
 
 Config loadConfig(const std::string& filename)
 {
-    Config settings{"", 60};
-
-    std::ifstream file(filename);
-
-    if(!file)
+    Config settings = {"", 60, 15, ""};
+    
+    try
     {
-        throw std::runtime_error("Could not open config file");
-    }
+        std::ifstream file(filename);
 
-    std::string line;
-
-    while(std::getline(file, line))
-    {
-        const std::size_t seperator = line.find('=');
-
-        if(seperator == std::string::npos)
+        if(!file.is_open())
         {
-            continue;
+            throw std::runtime_error("Could not open the log file");
         }
 
-        const std::string key = line.substr(0, seperator);
-        const std::string value = line.substr(seperator + 1);
+        std::string line;
 
-        if(key == "url")
+        while(std::getline(file, line))
         {
-            settings.url = value;
+            std::size_t seperator = line.find("=");
+
+            if(seperator == std::string::npos)
+            {
+                continue;
+            }
+
+            std::string key = line.substr(0, seperator);
+            std::string value = line.substr(seperator + 1);
+
+            if(key == "url")
+            {
+                settings.url = value;
+            }
+            else if(key == "interval_seconds")
+            {
+                settings.intervalSeconds = std::stoi(value);
+            }
+            else if(key == "timeout_secons")
+            {
+                settings.timeout = std::stoi(value);
+            }
+            else if(key == "log_file")
+            {
+                settings.log_file = value;
+            }
         }
-        else if(key == "interval_secons")
-        {
-            settings.intervalSeconds = std::stoi(value);
-        }
+
+        if(settings.url.empty() || settings.log_file.empty() || 
+           settings.intervalSeconds <= 0 || settings.timeout <= 0)
+           {
+                throw std::runtime_error("Invalid Configuration");
+           }
     }
-
-    if(settings.url.empty() || settings.intervalSeconds < 1)
+    catch(const std::exception& error)
     {
-        throw std::runtime_error("Invalid config");
+        std::cerr << "Error: " << error.what() << '\n';
     }
-
+    
     return settings;
 }
