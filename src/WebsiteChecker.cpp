@@ -16,7 +16,7 @@ bool WebsiteChecker::check()
     // Error handling
     if(curl == nullptr)
     {
-        std::cerr << "Error : Could not initialize" << std::endl;
+        throw std::runtime_error("Could not initialize libcurl");
         return false;
     }
 
