@@ -37,5 +37,6 @@ void Logger::log(const std::string& message)
         file << "unknown time";
     }
 
-    file << "] " << message << "\n";
+    file << "] " << message;
+    file <<  "httpcode(200) |" << "Unchanged";
 }
