@@ -1,0 +1,13 @@
+[Unit]
+Description=Website Monitor
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/YOUR_USERNAME/Desktop/programming/uni_projects/website-monitor
+ExecStart=/home/YOUR_USERNAME/Desktop/programming/uni_projects/website-monitor/bin/website-monitor
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
