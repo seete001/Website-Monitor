@@ -46,8 +46,11 @@ Edit `config.conf` to configure the website, request timeout, monitoring interva
 Example:
 
 url=https://google.com 
+
 timeout=10 
+
 intervalSeconds=60 
+
 log_file=logs/website.log
 
 
