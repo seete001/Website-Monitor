@@ -1,6 +1,6 @@
 # Website Monitor
 
-A lightweight C++ website monitoring tool that periodically checks website availability using libcurl and logs the results. It runs as a systemd user service and automatically restarts if it crashes.
+A lightweight C++ website monitoring tool that periodically checks website availability using libcurl and logs the results. It runs as a systemd user service and automatically restarts if it crashes. Uni Project!
 
 ## Features
 
@@ -45,7 +45,10 @@ Edit `config.conf` to configure the website, request timeout, monitoring interva
 
 Example:
 
-url=https://google.com timeout=10 intervalSeconds=60 log_file=logs/website.log
+url=https://google.com 
+timeout=10 
+intervalSeconds=60 
+log_file=logs/website.log
 
 
 Use the parameter names and format expected by your version of `Config.cpp`.
